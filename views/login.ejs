@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title><%= "Planner" %></title>
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+</head>
+<h1><%= "Lifestyle Planner" %></h1>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+</head>
+<body>
+
+<% if(error==true) { %><div id="error"> OMG ERRORRRRRR!!! </div><% }%>
+
+<div id="everything" >
+
+  <h2>Login to Your Account</h2>
+
+  <button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Login</button>
+
+  <div id="id01" class="modal">
+    <form class="modal-content animate" method= "post" action="/login">
+
+      <div class="imgcontainer">
+        <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+        <img src="images/icon.png" alt="Avatar" class="avatar" height="90">
+      </div>
+
+      <div class="container">
+        <label for="uname"><b>Username</b></label>
+        <input type="text" placeholder="Enter Username" name="username" required>
+
+        <label for="psw"><b>Password</b></label>
+        <input type="password" placeholder="Enter Password" name="password" required>
+
+        <button type="submit">Login</button>
+      </div>
+
+    </form>
+  </div>
+
+  <h2>Create new Account</h2>
+  <button onclick="document.getElementById('id02').style.display='block'" style="width:auto;">Create New</button>
+  <div id="id02" class="modal">
+    <form class="modal-content animate" action = "/create" method="post">
+
+      <div class="imgcontainer">
+        <span onclick="document.getElementById('id02').style.display='none'" class="close" title="Close Modal">&times;</span>
+        <img src="images/icon.png" alt="Avatar" class="avatar" height="90">
+      </div>
+
+      <div class="container">
+        <label for="uname"><b>Username</b></label>
+        <input type="text" placeholder="Create Username" name="userName" required>
+
+        <label for="psw"><b>Password</b></label>
+        <input type="password" placeholder="Create Password" name="password" required>
+        <button type="submit">Create!</button>
+      </div>
+
+
+    </form>
+  </div>
+</div>
+
+</div>
+
+<script>
+    // Get the modal
+    var modal = document.getElementById('id01');
+
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    }
+</script>
+</body>
+</html>
